@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 import probleme.action.Deplacement;
 
+/**
+ * GenerateurProbleme permet de générer un problème de résolution de labyrinthe à partir d'un fichier .lab
+ */
 public class GenerateurProbleme {
 	
 	/**
@@ -79,7 +82,7 @@ public class GenerateurProbleme {
 	
 	/**
 	 * Donne la liste des déplacements autorisés pour la résolution des labyrinthes
-	 * @return la liste des déplacements
+	 * @return la liste des déplacements par ordre de priorité
 	 */
 	public static Deplacement[] getDeplacements() {
 		Deplacement[] deps = new Deplacement[4];
