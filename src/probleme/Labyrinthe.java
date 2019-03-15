@@ -18,6 +18,10 @@ public class Labyrinthe {
 		return this.largeur;
 	}
 	
+	public TypeCase[][] getCases() {
+		return cases;
+	}
+	
 	public TypeCase getCase(int x, int y){
 		return cases[y][x];
 	}
