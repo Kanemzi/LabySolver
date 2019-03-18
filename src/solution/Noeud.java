@@ -1,10 +1,19 @@
 package solution;
 
+import probleme.Etat;
+import probleme.action.Deplacement;
+
 public class Noeud {
 	private int coutChemin;
 	private int profondeur;
+	private Etat etat;
+	private Noeud parent;
+	private Deplacement action;
 	
-	public Noeud(int coutChemin, int profondeur) {
+	public Noeud(Etat etat, Noeud parent, Deplacement action, int coutChemin, int profondeur) {
+		this.etat = etat;
+		this.parent = parent;
+		this.action = action;
 		this.coutChemin = coutChemin;
 		this.profondeur = profondeur;
 	}
@@ -13,15 +22,19 @@ public class Noeud {
 		return coutChemin;
 	}
 
-	public void setCoutChemin(int coutChemin) {
-		this.coutChemin = coutChemin;
-	}
-
 	public int getProfondeur() {
 		return profondeur;
 	}
 
-	public void setProfondeur(int profondeur) {
-		this.profondeur = profondeur;
+	public Etat getEtat() {
+		return etat;
+	}
+
+	public Noeud getParent() {
+		return parent;
+	}
+
+	public Deplacement getAction() {
+		return action;
 	}
 }

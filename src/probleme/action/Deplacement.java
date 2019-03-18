@@ -4,8 +4,8 @@ import probleme.Etat;
 import probleme.TypeCase;
 
 /**
- * Deplacement représente une action pouvant être éxécutée dans le labyrinthe
- * ces actions permettent de modifier les coordonnées de l'objet se trouvant dans le labyrinthe
+ * Deplacement reprï¿½sente une action pouvant ï¿½tre ï¿½xï¿½cutï¿½e dans le labyrinthe
+ * ces actions permettent de modifier les coordonnï¿½es de l'objet se trouvant dans le labyrinthe
  */
 public class Deplacement implements Action {
 	
@@ -13,9 +13,9 @@ public class Deplacement implements Action {
 	private int depX, depY;
 	
 	/**
-	 * Crée un nouveau déplacement possible
-	 * @param depX la modification en x des coordonnées de l'objet
-	 * @param depY la modification en y des coordonnées de l'objet
+	 * Crï¿½e un nouveau dï¿½placement possible
+	 * @param depX la modification en x des coordonnï¿½es de l'objet
+	 * @param depY la modification en y des coordonnï¿½es de l'objet
 	 */
 	public Deplacement(int depX, int depY) {
 		this.depX = depX;
@@ -24,9 +24,9 @@ public class Deplacement implements Action {
 	}
 	
 	/**
-	 * Applique le déplacement à l'objet d'un état 
+	 * Applique le dï¿½placement ï¿½ l'objet d'un ï¿½tat 
 	 * 
-	 * @param e l'état sur lequel appliquer le mouvement
+	 * @param e l'ï¿½tat sur lequel appliquer le mouvement
 	 */
 	public void appliquer(Etat e) {
 		e.setPosX(e.getPosX() + depX);
@@ -34,9 +34,9 @@ public class Deplacement implements Action {
 	}
 	
 	/**
-	 * Permet de savoir si un déplacement est possible pour un état donné
-	 * @param e l'état à tester pour le mouvement
-	 * @return true si le déplacement est possible, false sinon
+	 * Permet de savoir si un dï¿½placement est possible pour un ï¿½tat donnï¿½
+	 * @param e l'ï¿½tat ï¿½ tester pour le mouvement
+	 * @return true si le dï¿½placement est possible, false sinon
 	 */
 	public boolean possible(Etat e) {
 		
@@ -47,9 +47,15 @@ public class Deplacement implements Action {
 					&& ny >= 0
 					&& nx < e.getLaby().getLargeur()
 					&& ny < e.getLaby().getHauteur();
-					
+		
+		if (! okBords) return false;			
+		
 		boolean okMur = e.getLaby().getCase(nx, ny) != TypeCase.mur;
 		
-		return okBords && okMur;
+		return okMur;
+	}
+	
+	public int getCout() {
+		return cout;
 	}
 }
