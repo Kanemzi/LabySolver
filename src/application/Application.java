@@ -7,6 +7,7 @@ import solution.Noeud;
 import solution.Resultat;
 import solution.Solver;
 import solution.SolverExploLargeur;
+import solution.SolverExploProfondeur;
 
 public class Application {
 	public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Application {
 		
 		System.out.println(p.getLaby().getHauteur() + " " + p.getLaby().getLargeur());
 		
-		Solver s = new SolverExploLargeur();
+		Solver s = new SolverExploProfondeur();
 		Resultat r = s.resoudre(p);
 		
 		Noeud n = r.getNoeudFinal();
