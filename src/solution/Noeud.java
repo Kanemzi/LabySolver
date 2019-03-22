@@ -37,4 +37,14 @@ public class Noeud {
 	public Deplacement getAction() {
 		return action;
 	}
+
+	@Override
+	public String toString() {
+		return "Noeud [coutChemin=" + coutChemin + ", profondeur=" + profondeur + ", etat=" + etat + ", parent="
+				+ parent + ", action=" + action + "]";
+	}
+
+	
+	
+	
 }
