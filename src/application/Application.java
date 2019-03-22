@@ -3,9 +3,11 @@ package application;
 import probleme.GenerateurProbleme;
 import probleme.Probleme;
 import probleme.TypeCase;
+import solution.Heuristique;
 import solution.Noeud;
 import solution.Resultat;
 import solution.Solver;
+import solution.SolverAstar;
 import solution.SolverExploLargeur;
 import solution.SolverExploProfondeur;
 
@@ -39,7 +41,7 @@ public class Application {
 		
 		Noeud n = r2.getNoeudFinal();
 		while(n.getParent() != null) {
-			System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
+			System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY() + ", " + n.getAction().getNom());
 			n = n.getParent();
 		}
 		System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
@@ -62,5 +64,33 @@ public class Application {
 		System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
 		
 		
+		// PROFONDEUR
+		System.out.println("\n\n\nExploration en A* : \n");
+		Heuristique h = (pb, e) -> {
+			int x = e.getPosX();
+			int y = e.getPosY();
+			int sx = pb.getEtatFinal().getPosX();
+			int sy = pb.getEtatFinal().getPosY();
+			
+			int dx = (sx - x), dy = (sy - y);
+			
+			return dx * dx + dy * dy;
+			
+			//return Math.abs(sx - x) + Math.abs(sy - y);
+		};
+		Solver sat = new SolverAstar(h);
+		time = System.nanoTime();
+		Resultat r3 = sat.resoudre(p);
+
+		// affichage de stats sur le résultat
+		System.out.println("etapes :" + r.getEtapes());
+		System.out.println("time : " + (System.nanoTime() - time));
+
+		n = r3.getNoeudFinal();
+		while(n.getParent() != null) {
+			System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY() + ", " + n.getAction().getNom());
+			n = n.getParent();
+		}
+		System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());		
 	}
 }

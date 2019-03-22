@@ -7,9 +7,9 @@ import probleme.Etat;
  */
 public abstract class Action {
 	protected String nom;
-	protected int cout;
+	protected double cout;
 	
-	public Action(String nom, int cout) {
+	public Action(String nom, double cout) {
 		this.nom = nom;
 		this.cout = cout;
 	}
@@ -18,7 +18,7 @@ public abstract class Action {
 		return nom;
 	}
 	
-	public int getCout() {
+	public double getCout() {
 		return cout;
 	}
 	

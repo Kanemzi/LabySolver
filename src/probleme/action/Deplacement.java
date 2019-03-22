@@ -17,7 +17,7 @@ public class Deplacement extends Action {
 	 * @param depY la modification en y des coordonn�es de l'objet
 	 */
 	public Deplacement(int depX, int depY, String nom) {
-		super(nom, 1);
+		super(nom, 1.0D);
 		this.depX = depX;
 		this.depY = depY;
 	}
@@ -52,9 +52,5 @@ public class Deplacement extends Action {
 		boolean okMur = e.getLaby().getCase(nx, ny) != TypeCase.mur;
 		
 		return okMur;
-	}
-	
-	public int getCout() {
-		return cout;
 	}
 }

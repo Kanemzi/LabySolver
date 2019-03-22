@@ -19,7 +19,7 @@ public interface Solver {
 			
 			if (a.possible(e)) {
 				int profondeur = n.getProfondeur()+1;
-				int cout = n.getCoutChemin() + a.getCout();
+				double cout = n.getCoutChemin() + a.getCout();
 				Etat next = e.faireDeplacement(a);
 				Noeud n2 = new Noeud(next, n, a, cout, profondeur);
 				

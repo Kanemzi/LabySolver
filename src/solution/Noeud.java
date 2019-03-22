@@ -4,13 +4,13 @@ import probleme.Etat;
 import probleme.action.Deplacement;
 
 public class Noeud {
-	private int coutChemin;
+	private double coutChemin;
 	private int profondeur;
 	private Etat etat;
 	private Noeud parent;
 	private Deplacement action;
 	
-	public Noeud(Etat etat, Noeud parent, Deplacement action, int coutChemin, int profondeur) {
+	public Noeud(Etat etat, Noeud parent, Deplacement action, double coutChemin, int profondeur) {
 		this.etat = etat;
 		this.parent = parent;
 		this.action = action;
@@ -18,7 +18,7 @@ public class Noeud {
 		this.profondeur = profondeur;
 	}
 
-	public int getCoutChemin() {
+	public double getCoutChemin() {
 		return coutChemin;
 	}
 
