@@ -9,7 +9,6 @@ import probleme.TypeCase;
  */
 public class Deplacement extends Action {
 	
-	private int cout;
 	private int depX, depY;
 	
 	/**
@@ -18,10 +17,9 @@ public class Deplacement extends Action {
 	 * @param depY la modification en y des coordonn�es de l'objet
 	 */
 	public Deplacement(int depX, int depY, String nom) {
-		super(nom);
+		super(nom, 1);
 		this.depX = depX;
 		this.depY = depY;
-		this.cout = 1;
 	}
 	
 	/**
