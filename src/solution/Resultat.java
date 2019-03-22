@@ -1,6 +1,7 @@
 package solution;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Resultat {
@@ -8,7 +9,7 @@ public class Resultat {
 	private int etapes;
 	private boolean found;
 	private Noeud noeudFinal;
-	private List<Noeud> chemin;
+	private ArrayList<Noeud> chemin;
 
 	public Resultat(boolean found, double time, int etapes, Noeud noeudFinal) {
 		this.noeudFinal = noeudFinal;
@@ -18,12 +19,15 @@ public class Resultat {
 		this.chemin = new ArrayList<Noeud>();
 	}
 	
-	public List<Noeud> getChemin() {
-		while(noeudFinal.getParent() != null) {
-			chemin.add(noeudFinal);
-			//System.out.println(noeudFinal.getEtat().getPosX() + ", " + noeudFinal.getEtat().getPosY());
-			noeudFinal = noeudFinal.getParent();
+	public ArrayList<Noeud> getChemin() {
+		chemin.clear();
+		Noeud n = noeudFinal;
+		while(n.getParent() != null) {
+			chemin.add(n);
+			n = n.getParent();
 		}
+		chemin.add(n);
+		Collections.reverse(chemin);
 		return chemin;
 	}
 
@@ -56,12 +60,28 @@ public class Resultat {
 		String s = "";
 		if (found) {
 			s += "resolu ";
+			s += "en ";
+			s += time + " secondes ( ";
+			s += etapes + " étape éffectué )\n";
+			s += "les états parcouru sont    : ";
+			for (int i = 0; i < getChemin().size(); i++) {
+				s +=getChemin().get(i).getEtat().toString();
+				if(i<getChemin().size()-1) {
+					s+=" -> ";
+				}else {
+					s+="\n";
+				}
+			}
+			s += "les actions affectuez sont : ";
+			for (int i = 1; i < getChemin().size(); i++) {
+				s +=getChemin().get(i).getAction().toString();
+				if(i<getChemin().size()-1) {
+					s+=" -> ";
+				}
+			}
 		} else {
 			s += "non resolu ";
 		}
-		s += "en ";
-		s += time + " secondes ( ";
-		s += etapes + " )";
 		
 		return s;
 	}
