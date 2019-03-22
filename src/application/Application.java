@@ -56,7 +56,7 @@ public class Application {
 		
 		n = r.getNoeudFinal();
 		while(n.getParent() != null) {
-			System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
+			System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY() + ", " + n.getAction().getNom());
 			n = n.getParent();
 		}
 		System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());

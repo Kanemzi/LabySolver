@@ -3,9 +3,18 @@ package probleme.action;
 import probleme.Etat;
 
 /**
- * Action représente une action possible pouvant être éxécutée dans le but de résoudre un problème
+ * Action reprï¿½sente une action possible pouvant ï¿½tre ï¿½xï¿½cutï¿½e dans le but de rï¿½soudre un problï¿½me
  */
-public interface Action {
-	public void appliquer(Etat e);
-	public boolean possible(Etat e);
+public abstract class Action {
+	private String nom;
+	public Action(String nom) {
+		this.nom = nom;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	
+	public abstract void appliquer(Etat e);
+	public abstract boolean possible(Etat e);
 }

@@ -7,7 +7,7 @@ import probleme.TypeCase;
  * Deplacement repr�sente une action pouvant �tre �x�cut�e dans le labyrinthe
  * ces actions permettent de modifier les coordonn�es de l'objet se trouvant dans le labyrinthe
  */
-public class Deplacement implements Action {
+public class Deplacement extends Action {
 	
 	private int cout;
 	private int depX, depY;
@@ -17,7 +17,8 @@ public class Deplacement implements Action {
 	 * @param depX la modification en x des coordonn�es de l'objet
 	 * @param depY la modification en y des coordonn�es de l'objet
 	 */
-	public Deplacement(int depX, int depY) {
+	public Deplacement(int depX, int depY, String nom) {
+		super(nom);
 		this.depX = depX;
 		this.depY = depY;
 		this.cout = 1;

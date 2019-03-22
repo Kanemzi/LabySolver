@@ -8,14 +8,14 @@ import java.util.Scanner;
 import probleme.action.Deplacement;
 
 /**
- * GenerateurProbleme permet de générer un problème de résolution de labyrinthe à partir d'un fichier .lab
+ * GenerateurProbleme permet de gï¿½nï¿½rer un problï¿½me de rï¿½solution de labyrinthe ï¿½ partir d'un fichier .lab
  */
 public class GenerateurProbleme {
 	
 	/**
-	 * Parse un fichier .lab pour générer le labyrinthe correspondant et un problème lié aux points d'entrée et sortie de ce labyrinthe
-	 * @param file un fichier .lab à résoudre
-	 * @return le problème correspondant au labyrinthe
+	 * Parse un fichier .lab pour gï¿½nï¿½rer le labyrinthe correspondant et un problï¿½me liï¿½ aux points d'entrï¿½e et sortie de ce labyrinthe
+	 * @param file un fichier .lab ï¿½ rï¿½soudre
+	 * @return le problï¿½me correspondant au labyrinthe
 	 */
 	public static Probleme generer(String file) {
 		File f = new File(file);
@@ -40,7 +40,7 @@ public class GenerateurProbleme {
 		
 		TypeCase cases[][] = new TypeCase[hauteur][largeur] ;
 		
-		// points d'entrée et sortie
+		// points d'entrï¿½e et sortie
 		int ex = 0, ey = 0, sx = 0, sy = 0;
 		
 		for (int y = 0; y < hauteur; y++) {
@@ -81,16 +81,16 @@ public class GenerateurProbleme {
 	}
 	
 	/**
-	 * Donne la liste des déplacements autorisés pour la résolution des labyrinthes
-	 * @return la liste des déplacements par ordre de priorité
+	 * Donne la liste des dï¿½placements autorisï¿½s pour la rï¿½solution des labyrinthes
+	 * @return la liste des dï¿½placements par ordre de prioritï¿½
 	 */
 	public static Deplacement[] getDeplacements() {
 		Deplacement[] deps = new Deplacement[4];
 		
-		deps[0] = new Deplacement(0, -1); // haut
-		deps[1] = new Deplacement(0, 1); // bas
-		deps[2] = new Deplacement(-1, 0); // gauche
-		deps[3] = new Deplacement(1, 0); // droite
+		deps[0] = new Deplacement(0, -1, "Haut"); // haut
+		deps[1] = new Deplacement(0, 1, "Bas"); // bas
+		deps[2] = new Deplacement(-1, 0, "Gauche"); // gauche
+		deps[3] = new Deplacement(1, 0, "Droite"); // droite
 		
 		return deps;
 	}
