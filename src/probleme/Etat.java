@@ -103,4 +103,11 @@ public class Etat {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Etat [posX=" + posX + ", posY=" + posY + "]";
+	}
+	
+	
 }
