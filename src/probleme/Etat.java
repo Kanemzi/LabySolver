@@ -3,8 +3,8 @@ package probleme;
 import probleme.action.Deplacement;
 
 /**
- * Etat représente un état du labyrinthe dans lequel se déplace un objet
- * Un état est composé du labyrinthe et des coordonnées de l'objet
+ * Etat reprÃ©sente un Ã©tat du labyrinthe dans lequel se dÃ©place un objet
+ * Un Ã©tat est composÃ© du labyrinthe et des coordonnÃ©es de l'objet
  */
 public class Etat {
 	
@@ -12,9 +12,9 @@ public class Etat {
 	private Labyrinthe laby;
 	
 	/**
-	 * Crée un nouvel état
+	 * CrÃ©e un nouvel Ã©tat
 	 * 
-	 * @param laby le labyrinthe associé à l'état
+	 * @param laby le labyrinthe associÃ© Ã  l'Ã©tat
 	 * @param posX la position x de l'objet dans le labyrinthe
 	 * @param posY la position y de l'objet dans le labyrinthe
 	 */
@@ -25,10 +25,10 @@ public class Etat {
 	}
 	
 	/**
-	 * Génère un nouvel état à partir d'un état et d'un déplacement de l'objet
+	 * GÃ©nÃ©re un nouvel Ã©tat Ã  partir d'un Ã©tat et d'un dÃ©placement de l'objet
 	 * 
-	 * @param dep le déplacement à effectuer
-	 * @return le nouvel état après le déplacement, null si le déplacement est impossible
+	 * @param dep le dÃ©placement Ã  effectuer
+	 * @return le nouvel Ã©tat aprÃ¨s le dÃ©placement, null si le dÃ©placement est impossible
 	 */
 	public Etat faireDeplacement(Deplacement dep) {
 		if (dep.possible(this)) {
@@ -40,7 +40,7 @@ public class Etat {
 	}
 
 	/**
-	 * Permet de connaître la position horizontale de l'objet dans le labyrinthe
+	 * Permet de connaÃ®tre la position horizontale de l'objet dans le labyrinthe
 	 * @return la position x de l'objet
 	 */
 	public int getPosX() {
@@ -56,7 +56,7 @@ public class Etat {
 	}
 
 	/**
-	 * Permet de connaître la position verticale de l'objet dans le labyrinthe
+	 * Permet de connaÃ©tre la position verticale de l'objet dans le labyrinthe
 	 * @return la position y de l'objet
 	 */
 	public int getPosY() {
@@ -72,16 +72,16 @@ public class Etat {
 	}
 
 	/**
-	 * Permet de récupérer le labyrinthe associé à l'état
-	 * @return le labyrinthe associé à l'état
+	 * Permet de rÃ©cupÃ©rer le labyrinthe associÃ© Ã  l'Ã©tat
+	 * @return le labyrinthe associÃ© Ã  l'Ã©tat
 	 */
 	public Labyrinthe getLaby() {
 		return laby;
 	}
 
 	/**
-	 * Teste l'égalité entre deux états.
-	 * Deux états sont égaux si la position des objets est identique et si leur labyrinthe a la même référence.
+	 * Teste l'Ã©galitÃ© entre deux Ã©tats.
+	 * Deux Ã©tats sont Ã©gaux si la position des objets est identique et si leur labyrinthe a la mÃªme rÃ©fÃ©rence.
 	 */
 	@Override
 	public boolean equals(Object obj) {
