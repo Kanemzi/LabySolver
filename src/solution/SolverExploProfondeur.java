@@ -29,10 +29,9 @@ public class SolverExploProfondeur implements Solver{
 		
 		long startTime = System.currentTimeMillis();
 		
-		int etapes = 0;
+		int etapes = 1;
 		int tmp = 1;
 		while (true) {
-			etapes ++;
 			if(frontiere.isEmpty()) {
 				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, null);
 			}else {
@@ -40,7 +39,9 @@ public class SolverExploProfondeur implements Solver{
 				if (n.getEtat().equals(p.getEtatFinal())) {
 					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, n);
 				} else if (!listeFermes.contains(n.getEtat())) {
-					frontiere.addAll(developper(n, p));
+					List<Noeud> ns = developper(n, p);
+					etapes += ns.size();
+					frontiere.addAll(ns);
 					listeFermes.add(n.getEtat());
 				}
 			}

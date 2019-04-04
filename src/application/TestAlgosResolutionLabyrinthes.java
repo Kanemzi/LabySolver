@@ -1,3 +1,5 @@
+package application;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -7,11 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import algos.*;
-import heuristiques.*;
-import labyrinthe.*;
 import probleme.GenerateurProbleme;
-import probleme.Labyrinthe;
 import probleme.Probleme;
 import solution.Heuristique;
 import solution.Solver;

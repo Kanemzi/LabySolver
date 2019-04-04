@@ -1,0 +1,8 @@
+#nomLabyrinthe;nbNoeuds;longueurChemin;chemin
+labyrinths/lab1.lab;28;13;droite->bas->bas->bas->gauche->bas->droite->droite->droite->droite->haut->haut
+labyrinths/lab2.lab;37;0;aucun chemin
+labyrinths/lab3.lab;24;12;droite->bas->bas->bas->bas->droite->droite->droite->haut->haut->droite
+labyrinths/lab4.lab;99;23;bas->gauche->gauche->bas->bas->droite->droite->bas->bas->gauche->gauche->bas->bas->bas->bas->droite->droite->haut->droite->droite->bas->bas
+labyrinths/lab5.lab;55;21;bas->droite->droite->droite->droite->droite->droite->bas->bas->bas->bas->bas->bas->bas->bas->gauche->gauche->gauche->gauche->bas
+labyrinths/lab6.lab;40;14;bas->droite->droite->droite->droite->droite->droite->bas->bas->bas->bas->bas->droite
+labyrinths/lab7.lab;110;9;bas->droite->droite->droite->droite->droite->droite->haut

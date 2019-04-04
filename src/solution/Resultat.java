@@ -3,6 +3,9 @@ package solution;
 import java.util.ArrayList;
 
 import probleme.Probleme;
+import java.util.Collections;
+import java.util.List;
+
 
 public class Resultat {
 	private double time;
@@ -18,18 +21,43 @@ public class Resultat {
 		this.found = found;
 		this.time = time;
 		this.etapes = etapes;
-		this.chemin = getChemin(noeudFinal);
+		this.chemin = getCheminByNoeudFinal(noeudFinal);
 	}
 	
-	public ArrayList<Noeud> getChemin(Noeud nf) {
+	public static ArrayList<Noeud> getCheminByNoeudFinal(Noeud nf) {
+		
+		if (nf == null) return null;
+		
+		ArrayList<Noeud> chemin = new ArrayList<>();
 		while(nf.getParent() != null) {
 			chemin.add(nf);
 			nf = nf.getParent();
 		}
+		chemin.add(nf);
+		Collections.reverse(chemin);
 		return chemin;
 	}
 	
+	public ArrayList<Noeud> getChemin() {
+		return this.chemin;
+	}
+	
+	public String getCheminToString() {
+		
+		if (chemin == null) return "aucun chemin";
+		
+		String cs = "";
+		for (int i = 1; i < getChemin().size(); i++) {
+			cs +=getChemin().get(i).getAction().toString();
+			if(i<getChemin().size()-1) {
+				cs+="->";
+			}
+		}
+		return cs;
+	}
+	
 	public int getLongueurChemin() {
+		if (chemin == null) return 0;
 		return chemin.size();
 	}
 
@@ -53,24 +81,31 @@ public class Resultat {
 		return found;
 	}
 	
-	public Noeud getNoeudFinal() {
-		return noeudFinal;
-	}
-	
 	public String getResultatCSV() {
-		return probleme.getLaby().getNom() + ";" + ;
+		return probleme.getLaby().getNom() + ";" + etapes + ";" + getLongueurChemin() + ";" + getCheminToString();
 	}
 	
 	public String toString() {
 		String s = "";
 		if (found) {
 			s += "resolu ";
+			s += "en ";
+			s += time + " secondes ( ";
+			s += etapes + " étape éffectuées )\n";
+			s += "les �tats parcouru sont    : ";
+			for (int i = 0; i < getChemin().size(); i++) {
+				s +=getChemin().get(i).getEtat().toString();
+				if(i<getChemin().size()-1) {
+					s+=" -> ";
+				}else {
+					s+="\n";
+				}
+			}
+			s += "les actions effectuées sont : ";
+			s += getCheminToString();
 		} else {
-			s += "non resolu ";
+			s += "aucun chemin";
 		}
-		s += "en ";
-		s += time + " secondes ( ";
-		s += etapes + " )";
 		
 		return s;
 	}

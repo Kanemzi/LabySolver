@@ -2,7 +2,9 @@ package solution;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 import probleme.Etat;
 import probleme.Probleme;
@@ -27,20 +29,24 @@ public class SolverExploLargeur implements Solver {
 		
 		long startTime = System.currentTimeMillis();
 		
-		int etapes = 0;
+		System.out.println("SOLVING______________________________________________________");
 		
 		while (true) {
-			etapes ++;
 			
 			if (frontiere.isEmpty()) {
-				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, null);
+				System.out.println("_________________________________________________________________");
+				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), null);
 			} else {
 				Noeud n = frontiere.remove();
+				
 				if (n.getEtat().equals(p.getEtatFinal())) {
-					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, n);
+					System.out.println("_________________________________________________________________");
+					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), n);
 				} else if (!listeFermes.contains(n.getEtat())) {
 					frontiere.addAll(developper(n, p));
 					listeFermes.add(n.getEtat());
+					
+					System.out.println("noeud " + listeFermes.size() + "\t:\t" + n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
 				}
 			}
 		}

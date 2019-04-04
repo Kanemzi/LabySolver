@@ -106,7 +106,7 @@ public class Etat {
 
 	@Override
 	public String toString() {
-		return "Etat [posX=" + posX + ", posY=" + posY + "]";
+		return "(" +posX + ","+ posY + ")";
 	}
 	
 	
