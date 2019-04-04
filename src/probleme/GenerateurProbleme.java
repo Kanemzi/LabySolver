@@ -71,7 +71,7 @@ public class GenerateurProbleme {
 			}
 		}
 		
-		Labyrinthe laby = new Labyrinthe(cases, largeur, hauteur);
+		Labyrinthe laby = new Labyrinthe(file, cases, largeur, hauteur);
 		Etat etatInitial = new Etat(laby, ex, ey);
 		Etat etatFinal = new Etat(laby, sx, sy);
 		
@@ -87,10 +87,10 @@ public class GenerateurProbleme {
 	public static Deplacement[] getDeplacements() {
 		Deplacement[] deps = new Deplacement[4];
 		
-		deps[0] = new Deplacement(0, -1, "Haut"); // haut
-		deps[1] = new Deplacement(0, 1, "Bas"); // bas
-		deps[2] = new Deplacement(-1, 0, "Gauche"); // gauche
-		deps[3] = new Deplacement(1, 0, "Droite"); // droite
+		deps[0] = new Deplacement(0, -1, "haut"); // haut
+		deps[1] = new Deplacement(0, 1, "bas"); // bas
+		deps[2] = new Deplacement(-1, 0, "gauche"); // gauche
+		deps[3] = new Deplacement(1, 0, "droite"); // droite
 		
 		return deps;
 	}

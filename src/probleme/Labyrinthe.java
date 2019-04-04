@@ -1,20 +1,22 @@
 package probleme;
 
 /**
- * Labyrinthe représente le labyrinthe chargé à partir du fichier
+ * Labyrinthe reprï¿½sente le labyrinthe chargï¿½ ï¿½ partir du fichier
  */
 public class Labyrinthe {
+	private String nom;
 	private TypeCase cases[][];
 	private int largeur, hauteur;
 	
 	/**
-	 * Crée un Labyrinthe à partir d'un tableau contenant ses différents murs , sa largeur et sa hauteur
+	 * Crï¿½e un Labyrinthe ï¿½ partir d'un tableau contenant ses diffï¿½rents murs , sa largeur et sa hauteur
 	 * 
 	 * @param cases les murs et cases vides qui composent le labyrinthe
 	 * @param largeur la largeur du labyrinthe
 	 * @param hauteur la hauteur du labyrinthe
 	 */
-	public Labyrinthe(TypeCase cases[][], int largeur, int hauteur) {
+	public Labyrinthe(String nom, TypeCase cases[][], int largeur, int hauteur) {
+		this.nom = nom;
 		this.cases = cases;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
@@ -37,6 +39,14 @@ public class Labyrinthe {
 	}
 	
 	/**
+	 * Retourne le nom du labyrinthe
+	 * @return le nom du labyrinthe
+	 */
+	public String getNom() {
+		return this.nom;
+	}
+	
+	/**
 	 * Retourne l'ensemble des cases qui composent le labyrinthe
 	 * @return les cases du labyrinthe
 	 */
@@ -45,11 +55,11 @@ public class Labyrinthe {
 	}
 	
 	/**
-	 * Récupère le contenu d'une case du labyrinthe
+	 * Rï¿½cupï¿½re le contenu d'une case du labyrinthe
 	 * 
-	 * @param x la position x de la case à tester
-	 * @param y la position y de la case à tester
-	 * @return le contenu de la case aux coordonnées indiquées
+	 * @param x la position x de la case ï¿½ tester
+	 * @param y la position y de la case ï¿½ tester
+	 * @return le contenu de la case aux coordonnï¿½es indiquï¿½es
 	 */
 	public TypeCase getCase(int x, int y){
 		return cases[y][x];

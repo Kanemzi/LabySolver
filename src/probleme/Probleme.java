@@ -3,9 +3,9 @@ package probleme;
 import probleme.action.Deplacement;
 
 /**
- * Probleme représente un problème de résolution de labyrinthe
+ * Probleme reprï¿½sente un problï¿½me de rï¿½solution de labyrinthe
  * 
- * Le problème est composé du labyrinthe à résoudre, des points d'entrée et sortie du labyrinthe 
+ * Le problï¿½me est composï¿½ du labyrinthe ï¿½ rï¿½soudre, des points d'entrï¿½e et sortie du labyrinthe 
  * et des mouvements possibles pour l'objet se trouvant dans le labyrinthe
  *
  */
@@ -15,12 +15,12 @@ public class Probleme {
 	private Deplacement deplacements[];
 	
 	/**
-	 * Crée un nouveau problème
+	 * Crï¿½e un nouveau problï¿½me
 	 * 
-	 * @param laby le labyrinthe à résoudre
-	 * @param etatInitial l'état initial du problème (l'objet est à l'entrée du labyrinthe)
-	 * @param etatFinal l'état final du problème (l'objet est à la sortie du labyrinthe)
-	 * @param deplacements les déplacements que l'objet peut éxécuter dans le labyrinthe 
+	 * @param laby le labyrinthe ï¿½ rï¿½soudre
+	 * @param etatInitial l'ï¿½tat initial du problï¿½me (l'objet est ï¿½ l'entrï¿½e du labyrinthe)
+	 * @param etatFinal l'ï¿½tat final du problï¿½me (l'objet est ï¿½ la sortie du labyrinthe)
+	 * @param deplacements les dï¿½placements que l'objet peut ï¿½xï¿½cuter dans le labyrinthe 
 	 */
 	public Probleme(Labyrinthe laby, Etat etatInitial, Etat etatFinal, Deplacement[] deplacements) {
 		this.laby = laby;
@@ -30,32 +30,32 @@ public class Probleme {
 	}
 
 	/**
-	 * Retourne le labyrinthe à résoudre
-	 * @return le labyrinthe à résoudre
+	 * Retourne le labyrinthe ï¿½ rï¿½soudre
+	 * @return le labyrinthe ï¿½ rï¿½soudre
 	 */
 	public Labyrinthe getLaby() {
 		return laby;
 	}
 
 	/**
-	 * Retourne l'état initial du problème
-	 * @return l'état initial du problème
+	 * Retourne l'ï¿½tat initial du problï¿½me
+	 * @return l'ï¿½tat initial du problï¿½me
 	 */
 	public Etat getEtatInitial() {
 		return etatInitial;
 	}
 	
 	/**
-	 * Retourne l'état final du problème
-	 * @return l'état final du problème
+	 * Retourne l'ï¿½tat final du problï¿½me
+	 * @return l'ï¿½tat final du problï¿½me
 	 */
 	public Etat getEtatFinal() {
 		return etatFinal;
 	}
 
 	/**
-	 * Retourne les différents déplacements possibles dans le labyrinthe
-	 * @return les déplacements possibles
+	 * Retourne les diffï¿½rents dï¿½placements possibles dans le labyrinthe
+	 * @return les dï¿½placements possibles
 	 */
 	public Deplacement[] getDeplacements() {
 		return deplacements;

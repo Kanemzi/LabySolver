@@ -13,7 +13,7 @@ import solution.SolverExploProfondeur;
 
 public class Application {
 	public static void main(String[] args) {
-		Probleme p = GenerateurProbleme.generer("labs/labExemple.lab");
+		Probleme p = GenerateurProbleme.generer("labs/complique.lab");
 		
 		TypeCase[][] cs = p.getLaby().getCases();
 		
@@ -64,7 +64,7 @@ public class Application {
 		System.out.println(n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
 		
 		
-		// PROFONDEUR
+		// A
 		System.out.println("\n\n\nExploration en A* : \n");
 		Heuristique h = (pb, e) -> {
 			int x = e.getPosX();

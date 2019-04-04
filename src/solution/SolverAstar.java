@@ -34,13 +34,13 @@ public class SolverAstar implements Solver {
 			etapes ++;
 			
 			if (frontiere.isEmpty()) {
-				return new Resultat(false, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, null);
+				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, null);
 			} else {
 				
 				Noeud n = prendreNoeudPlusProche(frontiere, p);
 				
 				if (n.getEtat().equals(p.getEtatFinal())) {
-					return new Resultat(true, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, n);
+					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, n);
 				} else if (!listeFermes.contains(n.getEtat())) {
 					frontiere.addAll(developper(n, p));
 					listeFermes.add(n.getEtat());

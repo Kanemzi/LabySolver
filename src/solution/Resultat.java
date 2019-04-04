@@ -1,30 +1,36 @@
 package solution;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import probleme.Probleme;
 
 public class Resultat {
 	private double time;
 	private int etapes;
 	private boolean found;
 	private Noeud noeudFinal;
-	private List<Noeud> chemin;
+	private ArrayList<Noeud> chemin;
+	private Probleme probleme;
 
-	public Resultat(boolean found, double time, int etapes, Noeud noeudFinal) {
+	public Resultat(Probleme probleme, boolean found, double time, int etapes, Noeud noeudFinal) {
+		this.probleme = probleme;
 		this.noeudFinal = noeudFinal;
 		this.found = found;
 		this.time = time;
 		this.etapes = etapes;
-		this.chemin = new ArrayList<Noeud>();
+		this.chemin = getChemin(noeudFinal);
 	}
 	
-	public List<Noeud> getChemin() {
-		while(noeudFinal.getParent() != null) {
-			chemin.add(noeudFinal);
-			//System.out.println(noeudFinal.getEtat().getPosX() + ", " + noeudFinal.getEtat().getPosY());
-			noeudFinal = noeudFinal.getParent();
+	public ArrayList<Noeud> getChemin(Noeud nf) {
+		while(nf.getParent() != null) {
+			chemin.add(nf);
+			nf = nf.getParent();
 		}
 		return chemin;
+	}
+	
+	public int getLongueurChemin() {
+		return chemin.size();
 	}
 
 	public double getTime() {
@@ -51,6 +57,9 @@ public class Resultat {
 		return noeudFinal;
 	}
 	
+	public String getResultatCSV() {
+		return probleme.getLaby().getNom() + ";" + ;
+	}
 	
 	public String toString() {
 		String s = "";
