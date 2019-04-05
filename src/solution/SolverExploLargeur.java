@@ -21,7 +21,7 @@ public class SolverExploLargeur implements Solver {
 	 */
 	public Resultat resoudre(Probleme p) {
 		
-		Queue<Noeud> frontiere = new LinkedList<>();
+		ArrayList<Noeud> frontiere = new ArrayList<>();
 		ArrayList<Etat> listeFermes = new ArrayList<>();
 		
 		// ajout de l'état initial
@@ -37,13 +37,14 @@ public class SolverExploLargeur implements Solver {
 				System.out.println("_________________________________________________________________");
 				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), null);
 			} else {
-				Noeud n = frontiere.remove();
+				Noeud n = frontiere.remove(0);
 				
 				if (n.getEtat().equals(p.getEtatFinal())) {
+					listeFermes.add(n.getEtat());
 					System.out.println("_________________________________________________________________");
 					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), n);
 				} else if (!listeFermes.contains(n.getEtat())) {
-					frontiere.addAll(developper(n, p));
+					frontiere.addAll(developper(n, p, frontiere, listeFermes));
 					listeFermes.add(n.getEtat());
 					
 					System.out.println("noeud " + listeFermes.size() + "\t:\t" + n.getEtat().getPosX() + ", " + n.getEtat().getPosY());

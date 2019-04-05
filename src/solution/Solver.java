@@ -10,7 +10,7 @@ import probleme.action.Deplacement;
 public interface Solver {
 	public Resultat resoudre(Probleme p);
 	
-	default public List<Noeud> developper(Noeud n, Probleme p) {
+	default public List<Noeud> developper(Noeud n, Probleme p, ArrayList<Noeud> frontiere, ArrayList<Etat> fermes) {
 		List<Noeud> successeurs = new ArrayList<>();
 		
 		Etat e = n.getEtat();
@@ -23,7 +23,8 @@ public interface Solver {
 				Etat next = e.faireDeplacement(a);
 				Noeud n2 = new Noeud(next, n, a, cout, profondeur);
 				
-				successeurs.add(n2);
+				if (!frontiere.contains(n2) && !fermes.contains(n2.getEtat()))
+					successeurs.add(n2);
 			}
 		}
 		return successeurs;

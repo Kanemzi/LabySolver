@@ -44,6 +44,23 @@ public class Noeud {
 				+ parent + ", action=" + action + "]";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Noeud other = (Noeud) obj;
+		if (etat == null) {
+			if (other.etat != null)
+				return false;
+		} else if (!etat.equals(other.etat))
+			return false;
+		return true;
+	}
+
 	
 	
 	

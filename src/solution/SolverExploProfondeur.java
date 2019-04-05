@@ -1,10 +1,12 @@
 package solution;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import probleme.Etat;
 import probleme.Probleme;
@@ -28,19 +30,18 @@ public class SolverExploProfondeur implements Solver{
 		frontiere.add(new Noeud(p.getEtatInitial(), null, null, 0, 0));
 		
 		long startTime = System.currentTimeMillis();
-		
-		int etapes = 1;
-		int tmp = 1;
+
 		while (true) {
 			if(frontiere.isEmpty()) {
-				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, null);
+				return new Resultat(p, false, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), null);
 			}else {
-				Noeud n = frontiere.remove(frontiere.size()-tmp);
+				Noeud n = frontiere.remove(frontiere.size() - 1);
 				if (n.getEtat().equals(p.getEtatFinal())) {
-					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, etapes, n);
+					listeFermes.add(n.getEtat());
+					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), n);
 				} else if (!listeFermes.contains(n.getEtat())) {
-					List<Noeud> ns = developper(n, p);
-					etapes += ns.size();
+					List<Noeud> ns = developper(n, p, frontiere, listeFermes);
+					Collections.reverse(ns);
 					frontiere.addAll(ns);
 					listeFermes.add(n.getEtat());
 				}

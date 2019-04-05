@@ -40,10 +40,11 @@ public class SolverAstar implements Solver {
 				Noeud n = prendreNoeudPlusProche(frontiere, p);
 				
 				if (n.getEtat().equals(p.getEtatFinal())) {
+					listeFermes.add(n.getEtat());
 					System.out.println("_________________________________________________________________");
 					return new Resultat(p, true, (double)(System.currentTimeMillis()-startTime)/1000.0, listeFermes.size() + frontiere.size(), n);
 				} else if (!listeFermes.contains(n.getEtat())) {
-					frontiere.addAll(developper(n, p));
+					frontiere.addAll(developper(n, p, frontiere, listeFermes));
 					listeFermes.add(n.getEtat());
 					
 					System.out.println("noeud " + listeFermes.size() + "\t:\t" + n.getEtat().getPosX() + ", " + n.getEtat().getPosY());
